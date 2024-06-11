@@ -13,7 +13,11 @@ class Nieuw extends Model
         'titel',
         'beschrijving',
         'aanmaakdatum',
+        'user_id',
+        'categorie_id',
     ];
+
+    protected $primaryKey = 'nieuws_id';
 
     public function categorie(){
         return $this->belongsTo(Categorie::class, 'categorie_id');
@@ -28,3 +32,4 @@ class Nieuw extends Model
         return $this->belongsToMany(NieuwsTag::class, 'nieuws_id');
     }
 }
+    

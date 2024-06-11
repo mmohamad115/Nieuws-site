@@ -48,7 +48,8 @@ class CategorieController extends Controller
         return redirect()->route('categories.index', $categorie->categorie_id)->with('success', 'Categorie updated successfully');
     }
 
-    public function delete(Categorie $categorie){
+    public function delete(Categorie $categorie)
+    {
         $categorie->delete();
         return redirect()->route('categories.index', $categorie->categorie_id)->with('success', 'Categorie deleted successfully');
     }

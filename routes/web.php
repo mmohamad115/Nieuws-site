@@ -17,9 +17,6 @@ Route::put('/categories/{categorie}/update', [CategorieController::class, 'updat
 Route::delete('/categories/{categorie}/delete', [CategorieController::class, 'delete'])->name('categories.destory');
 
 Route::get('/nieuws', [NieuwsController::class, 'index'])->name('nieuws.index');
-Route::get('/nieuws/create', [NieuwsController::class, 'create'])->name('nieuws.create');
-Route::post('/nieuws/store', [NieuwsController::class, 'store'])->name('nieuws.store');
-Route::get('/nieuws/{nieuws}/edit', [NieuwsController::class, 'edit'])->name('nieuws.edit');
 
 
 Route::get('/dashboard', function () {
@@ -30,6 +27,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/nieuws/create', [NieuwsController::class, 'create'])->name('nieuws.create');
+    Route::post('/nieuws', [NieuwsController::class, 'store'])->name('nieuws.store');
+    Route::get('/nieuws/{nieuws}/edit', [NieuwsController::class, 'edit'])->name('nieuws.edit');
+    Route::put('/nieuws/{nieuws}/update', [NieuwsController::class, 'update'])->name('nieuws.update');
+    Route::delete('/nieuws/{nieuws}/delete', [NieuwsController::class, 'delete'])->name('nieuws.destory');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
